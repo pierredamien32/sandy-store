@@ -59,7 +59,7 @@ class AdminController extends Controller
         if ($user) {
             // L'utilisateur existe déjà dans la base de données
             // Gérer l'erreur ou afficher un message d'erreur approprié
-            
+
             return redirect()->back()->withErrors(['email' => 'Cette adresse e-mail est déjà utilisée.'])->withInput();
         } else {
             // L'utilisateur n'existe pas dans la base de données, vous pouvez le créer
@@ -72,7 +72,7 @@ class AdminController extends Controller
 
             //  Auth::login($user);
             return redirect()->route('homeSuperAdmin');
-        } 
+        }
     }
 
     public function loginUsers(Request $request)
@@ -85,9 +85,9 @@ class AdminController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $user = Auth::user(); 
+            $user = Auth::user();
             $verifiUser = User::where('id', $user->id)->first();
-            
+
 
             session(['name' => $verifiUser->name,
                     'email' => $verifiUser->email,
@@ -110,13 +110,13 @@ class AdminController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-    
+
         $request->session()->invalidate();
-    
+
         $request->session()->regenerateToken();
 
         $request->session()->flush();
-    
+
         return redirect()->route('createFormLogin');
     }
     /**
