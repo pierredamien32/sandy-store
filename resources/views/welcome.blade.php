@@ -66,7 +66,7 @@
               </div>
               <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
             </div>
-            
+
           </div>
         </li>
         @if(Session::has('user_name'))
@@ -85,44 +85,40 @@
                     <ul class="py-2" aria-labelledby="user-menu-button">
                       @if(auth()->check() && (auth()->user()['role_id'] == 1))
                         <li>
-                            <a href="{{url('/super@dmin/mr-top')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Voir les utilisateurs</a>
+                            <a href="{{ route('homeSuperAdmin') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Voir les utilisateurs</a>
                         </li>
-                        
+
                         </li>
                         <li>
                             <a href="{{ route('addAdmin.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un admin</a>
                         </li>
-                        <!-- <li>
-                            <a href="{{url('/admin/home')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Voir mon stock d'article</a>
-                        </li> -->
+
                         <li>
-                            <a href="{{url('/admin/mes-articles')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mes articles</a>
+                            <a href="{{ url('/') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Les produits</a>
                         </li>
-                        <!-- <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un article</a>
-                        <li> -->
+
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Modifier mon profil</a>
                         </li>
                         <li>
-                          <form action="{{url('/logout')}}" method="post">
+                          <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Se déconnecter</button>
                           </form>
                         </li>
                       @else
                         <li>
-                            <a href="{{url('/admin/home')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Voir mon stock d'article</a>
+                            <a href="{{  route('homeAdmin.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Voir mon stock de produit</a>
                         </li>
                         <li>
-                            <a href="{{url('/admin/mes-articles')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mes articles</a>
+                            <a href="{{ route('mes_articles') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mes produits</a>
                         </li>
                         <li>
-                            <a href="{{route('addArticle.create')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un article</a>
+                            <a href="{{ route('addArticle.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un produit</a>
                         <li>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Modifier mon profil</a>
                         </li>
                         <li>
-                        <form action="{{url('/logout')}}" method="POST">
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Se déconnecter</button>
                           </form>
@@ -151,7 +147,7 @@
 </nav>
 <!-- <h1 class=" dark:text-white"></h1> -->
     @yield('content')
-  
+
     <!-- footer -->
 <footer class="bg-white shadow dark:bg-gray-900 ">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">

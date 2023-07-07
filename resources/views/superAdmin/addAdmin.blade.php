@@ -2,15 +2,15 @@
 @section('content')
 <div class="bg-white dark:bg-gray-800 pb-4">
     <div class="flex flex-col justify-center items-center">
-        
+
         <div class="w-full max-w-sm p-4 bg-white border mt-5 border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <h2 class="text-3xl text-white text-center relative bottom-4">Ajouter un admin</h2>
+            <h2 class="text-3xl text-gray-900 text-center relative bottom-4 dark:text-white">Ajouter un admin</h2>
             <form action="{{ route('addAdmin.store') }}" method="POST">
                 @csrf
                 <!-- <input  type="hidden" name="role_id" value="2" id=""> -->
                 <div class="mb-6">
                     <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom d'utilisateur</label>
-                    <input type="text" name="name" id="nom" value="{{ old('nom') }}" class="shadow-sm bg-gray-50 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }} border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Mr-Top" >
+                    <input type="text" name="name" id="nom" value="{{ old('name') }}" class="shadow-sm bg-gray-50 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }} border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Mr-Top" >
                     @error('name')
                         <span class="text-red-600">{{ $message }}</span>
                     @enderror

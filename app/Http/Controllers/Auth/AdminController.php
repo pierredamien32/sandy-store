@@ -28,12 +28,13 @@ class AdminController extends Controller
     }
 
     public function homeAdmin(){
-        return view('admin/voirArticles');
+        return view('admin/homeAdmin');
     }
 
     public function homeSuperAdmin(){
 
         $utilisateurs = User::all();
+        
         // dd('Mes users '.$utilisateurs);
         return view('superAdmin.homeSuperAdmin', compact('utilisateurs'));
     }
@@ -97,7 +98,7 @@ class AdminController extends Controller
              Auth::loginUsingId($user->id);
             // dd('La vérification '.$ok);
             return redirect()->intended(
-                Auth::user()->role->id == 1 ? route('homeSuperAdmin') : route('homeAdmin')
+                Auth::user()->role->id == 1 ? route('homeSuperAdmin') : route('homeAdmin.index')
             );
         }
 

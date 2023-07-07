@@ -1,6 +1,6 @@
 @extends('welcome')
 @section('content')
-    
+
 <div class="relative overflow-x-auto shadow-md ">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 pb-10">
         <caption class="p-5 text-3xl  font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
@@ -61,7 +61,7 @@
                     </td>
                 </tr>
         @endforeach
-            
+
         </tbody>
         @else
             <p class="flex justify-center items-center h-[100vh] font-bold text-3xl">Pas d'utilisateurs</p>
@@ -80,11 +80,11 @@
             </button>
             <div class="p-6 text-center">
                 <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Voulez-vous vraiment supprimer cet admin ?</h3>
                 <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                    Yes, I'm sure
+                    Oui, je suis sûr
                 </button>
-                <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+                <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Non, annuler</button>
             </div>
         </div>
     </div>
@@ -121,7 +121,7 @@
                         <span class="text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
-                
+
                 <div class="flex justify-center items-center">
                     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier un admin</button>
                 </div>
@@ -129,7 +129,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 
 
