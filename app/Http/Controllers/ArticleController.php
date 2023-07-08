@@ -51,15 +51,17 @@ class ArticleController extends Controller
             'nom_produit' => 'required|string',
             'prix' => 'required',
             'stock' => 'required',
-            'file' => 'required',
+            'file' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028'
         ]);
 
         $user_connecte = auth()->user()->id;
-        $produit_user_connecte = Produit::where('user_id', $user_connecte)->get();
+        // $produit_user_connecte = Produit::where('user_id', $user_connecte)->get();
         $nom_produit = $request->nom_produit;
-        $produit = Produit::where('nom_produit', $nom_produit)->first();
+
+        $produit = Produit::where('user_id', $user_connecte)->get()
+                            ->where('nom_produit', $nom_produit)->first();
         //dd('OK '.$produit);
-        if ($produit && $produit_user_connecte) {
+        if ($produit) {
             // Le produit existe déjà dans la base de données
             // Gérer l'erreur ou afficher un message d'erreur approprié
 
@@ -90,7 +92,9 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $produit = Produit::findOrFail($id);
+        // dd($produit);
+        return view('admin.homeAdmin', compact('produit'));
     }
 
     /**
@@ -98,7 +102,9 @@ class ArticleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produit = Produit::findOrFail($id);
+        // dd($produit);
+        return view('admin.edit', compact('produit'));
     }
 
     /**
@@ -106,7 +112,31 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $produit = Produit::findOrFail($id);
+
+        $image = $request->file;
+
+        if($image){
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->file->move('productimage', $imagename);
+            $produit->image = $imagename;
+        }
+
+        $produit->nom_produit = $request->nom_produit;
+        $produit->prix = $request->prix;
+        $produit->description = $request->description;
+        $produit->stock = $request->stock;
+
+        $produit->user_id = auth()->user()->id;
+        // dd('Les infos récupérer '.$produit);
+
+        $produit->update();
+
+        return redirect()->route('homeAdmin.index');
+    }
+
+    public function changeDelete(){
+        
     }
 
     /**
@@ -114,6 +144,10 @@ class ArticleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produit = Produit::findOrFail($id);
+
+        $produit->delete();
+
+        return redirect()->back();
     }
 }

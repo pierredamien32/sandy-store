@@ -14,6 +14,7 @@
         document.documentElement.classList.remove('dark')
     }
 </script>
+    @livewireStyles
 </head>
 <body>
   <!-- navbar -->
@@ -113,7 +114,7 @@
                             <a href="{{ route('mes_articles') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mes produits</a>
                         </li>
                         <li>
-                            <a href="{{ route('addArticle.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un produit</a>
+                            {{-- <a href="{{ route('addArticle.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un produit</a> --}}
                         <li>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Modifier mon profil</a>
                         </li>
@@ -176,7 +177,7 @@
     </div>
 </footer>
 
-
+    @livewireScripts
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>

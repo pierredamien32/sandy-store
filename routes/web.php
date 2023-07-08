@@ -32,10 +32,17 @@ Route::post('/login', [AdminController::class, 'loginUsers'])->name('loginUsers'
 
 // Route accessible que si l'utilisateur est connecté
 Route::middleware(['auth', 'auth.session'])->group(function () {
+
     Route::get('/mes_articles', [ArticleController::class, 'mes_articles'])->name('mes_articles');
     Route::get('/admin/addArticle', [ArticleController::class, 'create'])->name('addArticle.create');
     Route::post('/admin/addArticle', [ArticleController::class, 'store'])->name('addArticle.store');
     Route::get('/admin/home', [ArticleController::class, 'index'])->name('homeAdmin.index');
+    Route::get('/admin/edit_produit/{id}', [ArticleController::class, 'edit'])->name('homeAdmin.edit');
+    Route::post('/admin/show_produit/{id}', [ArticleController::class, 'show'])->name('homeAdmin.show');
+    Route::post('/admin/update_produit/{id}', [ArticleController::class, 'update'])->name('homeAdmin.update');
+    Route::post('/admin/update_produit/{id}', [ArticleController::class, 'update'])->name('homeAdmin.update');
+    Route::delete('/admin/delete_produit/{id}', [ArticleController::class, 'destroy'])->name('homeAdmin.destroy');
+
     Route::get('/super@dmin/mr-top', [AdminController::class, 'homeSuperAdmin'])->name('homeSuperAdmin');
     Route::get('/super@dmin/add-admin', [AdminController::class, 'create'])->name('addAdmin.create');
     Route::post('/super@dmin/add-admin', [AdminController::class, 'store'])->name('addAdmin.store');
