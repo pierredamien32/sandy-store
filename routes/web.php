@@ -38,7 +38,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::post('/admin/addArticle', [ArticleController::class, 'store'])->name('addArticle.store');
     Route::get('/admin/home', [ArticleController::class, 'index'])->name('homeAdmin.index');
     Route::get('/admin/edit_produit/{id}', [ArticleController::class, 'edit'])->name('homeAdmin.edit');
-    Route::post('/admin/show_produit/{id}', [ArticleController::class, 'show'])->name('homeAdmin.show');
+    Route::get('/admin/show_produit/{id}', [ArticleController::class, 'show'])->name('homeAdmin.show');
     Route::post('/admin/update_produit/{id}', [ArticleController::class, 'update'])->name('homeAdmin.update');
     Route::post('/admin/update_produit/{id}', [ArticleController::class, 'update'])->name('homeAdmin.update');
     Route::delete('/admin/delete_produit/{id}', [ArticleController::class, 'destroy'])->name('homeAdmin.destroy');

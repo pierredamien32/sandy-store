@@ -94,7 +94,7 @@ class ArticleController extends Controller
     {
         $produit = Produit::findOrFail($id);
         // dd($produit);
-        return view('admin.homeAdmin', compact('produit'));
+        return view('admin.delete', compact('produit'));
     }
 
     /**
@@ -135,9 +135,7 @@ class ArticleController extends Controller
         return redirect()->route('homeAdmin.index');
     }
 
-    public function changeDelete(){
-        
-    }
+
 
     /**
      * Remove the specified resource from storage.

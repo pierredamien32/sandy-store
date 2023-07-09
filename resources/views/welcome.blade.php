@@ -14,7 +14,7 @@
         document.documentElement.classList.remove('dark')
     }
 </script>
-    @livewireStyles
+
 </head>
 <body>
   <!-- navbar -->
@@ -176,8 +176,6 @@
         <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
     </div>
 </footer>
-
-    @livewireScripts
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>
