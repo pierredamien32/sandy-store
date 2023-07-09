@@ -90,9 +90,9 @@
                         </li>
 
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('addAdmin.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un admin</a>
-                        </li>
+                        </li> --}}
 
                         <li>
                             <a href="{{ url('/') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Les produits</a>
@@ -113,8 +113,9 @@
                         <li>
                             <a href="{{ route('mes_articles') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mes produits</a>
                         </li>
-                        <li>
-                            {{-- <a href="{{ route('addArticle.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un produit</a> --}}
+                        {{-- <li>
+                            <a href="{{ route('addArticle.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajouter un produit</a>
+                        </li> --}}
                         <li>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Modifier mon profil</a>
                         </li>

@@ -34,7 +34,7 @@ class AdminController extends Controller
     public function homeSuperAdmin(){
 
         $utilisateurs = User::all();
-        
+
         // dd('Mes users '.$utilisateurs);
         return view('superAdmin.homeSuperAdmin', compact('utilisateurs'));
     }
@@ -126,7 +126,9 @@ class AdminController extends Controller
 
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        // dd($produit);
+        return view('superAdmin.homeSuperAdmin', compact('user'));
     }
 
     /**
@@ -134,7 +136,9 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        // dd($produit);
+        return view('superAdmin.edit', compact('user'));
     }
 
     /**
@@ -142,7 +146,19 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $reponse = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+        ]);
+
+        $user = User::findOrFail($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->update();
+
+        return redirect()->route('homeSuperAdmin');
     }
 
     /**
@@ -150,6 +166,10 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->back();
     }
 }

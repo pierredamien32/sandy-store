@@ -94,7 +94,7 @@ class ArticleController extends Controller
     {
         $produit = Produit::findOrFail($id);
         // dd($produit);
-        return view('admin.delete', compact('produit'));
+        return view('admin.homeAdmin', compact('produit'));
     }
 
     /**
