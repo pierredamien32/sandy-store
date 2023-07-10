@@ -19,7 +19,6 @@ class ArticleController extends Controller
             $produits = Produit::query()
                 ->where('nom_produit', 'LIKE', '%'.$search.'%')
                 ->orWhere('description', 'LIKE', '%'.$search.'%')
-                ->latest()
                 ->paginate(10);
         } else {
             $produits = Produit::where('user_id', auth()->user()->id)
@@ -31,17 +30,26 @@ class ArticleController extends Controller
     }
 
 
-    public function article()
+    public function article(Request $request)
     {
-        $produits = Produit::all();
+        $search = $request->search;
 
-        // dd('Mes produits '.$produits);
+        if ($search) {
+            $produits = Produit::query()
+                ->where('nom_produit', 'LIKE', '%'.$search.'%')
+                ->orWhere('description', 'LIKE', '%'.$search.'%')
+                ->get();
+        } else {
+            $produits = Produit::latest()->get();
+        }
+
         return view('articles', compact('produits'));
     }
 
+
     public function mes_articles()
     {
-        $produits = Produit::where('user_id', auth()->user()->id)->get();
+        $produits = Produit::where('user_id', auth()->user()->id)->latest()->get();
 
         // dd('Mes produits '.$produits);
         return view('admin.mesArticles', compact('produits'));

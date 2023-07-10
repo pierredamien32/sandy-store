@@ -26,7 +26,7 @@
             </div>
         @endforeach
     @else
-        <p class="flex justify-center items-center h-[100vh] font-bold text-3xl">Pas de produit disponible</p>
+        <p class="flex justify-center items-center h-[100px] italic text-3xl text-gray-900 bg-white dark:text-white dark:bg-gray-800 pb-10">Pas de produit disponible.</p>
     @endif
         </div>
     </div>
