@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -10,13 +11,25 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $produits = Produit::where('user_id', auth()->user()->id)->get();
+        $search = $request->search;
 
-        // dd('Mes produits '.$produits);
+        if ($search) {
+            $produits = Produit::query()
+                ->where('nom_produit', 'LIKE', '%'.$search.'%')
+                ->orWhere('description', 'LIKE', '%'.$search.'%')
+                ->latest()
+                ->paginate(10);
+        } else {
+            $produits = Produit::where('user_id', auth()->user()->id)
+                ->latest()
+                ->paginate(10);
+        }
+
         return view('admin.homeAdmin', compact('produits'));
     }
+
 
     public function article()
     {
