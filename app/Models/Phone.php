@@ -5,23 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produit extends Model
+class Phone extends Model
 {
     use HasFactory;
-    protected $table = 'produits';
+
+    protected $table = 'phones';
 
     protected $fillable = [
-        'nom_produit',
-        'prix',
-        'description',
-        'stock',
-        'image',
-        'user_id'
+        'num_client',
     ];
-
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
 
     public function paniers(){
         return $this->hasMany(Panier::class);

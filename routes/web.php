@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Auth\AdminController;
 
 /*
@@ -29,6 +30,9 @@ Route::get('/admin/mes-articles', function () {
 Route::get('/', [ArticleController::class, 'article'])->name('all.article');
 Route::get('/login', [AdminController::class, 'createFormLogin'])->name('createFormLogin');
 Route::post('/login', [AdminController::class, 'loginUsers'])->name('loginUsers');
+
+Route::get('/user/commande', [ClientController::class, 'create'])->name('commande.create');
+
 
 // Route accessible que si l'utilisateur est connecté
 Route::middleware(['auth', 'auth.session'])->group(function () {

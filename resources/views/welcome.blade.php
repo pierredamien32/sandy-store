@@ -42,7 +42,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="block py-2 pr-4 mt-2 text-gray-900 rounded mpl-3 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+          <a href="{{ route('commande.create') }}" class="block py-2 pr-4 mt-2 text-gray-900 rounded mpl-3 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
             <i class="text-[20px] fa-solid fa-cart-shopping"></i>
           </a>
         </li>
