@@ -16,7 +16,7 @@
                         <h5 class="text-lg font-normal tracking-tight text-gray-900 dark:text-white">{{ $produit->nom_produit }}</h5>
                     </a>
                     <div class="flex items-center justify-end mt-2.5 mb-5">
-                        <h5 class="text-md font-semibold tracking-tight text-gray-900 dark:text-white">{{ $produit->description }}</h5>
+                        {{-- <h5 class="text-md font-semibold tracking-tight text-gray-900 dark:text-white">{{ $produit->description }}</h5> --}}
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-[22px] font-bold text-gray-900 dark:text-white">{{ $produit->prix }}fcfa</span>

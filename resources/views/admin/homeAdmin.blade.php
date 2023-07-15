@@ -35,9 +35,9 @@
                 <th scope="col" class="px-6 py-3">
                     Prix
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {{-- <th scope="col" class="px-6 py-3">
                     Description du produit
-                </th>
+                </th> --}}
                 <th scope="col" class="px-6 py-3">
                     Quantité en stock
                 </th>
@@ -61,9 +61,9 @@
                     <td class="px-6 py-4">
                         {{ $produit->prix }}
                     </td>
-                    <td class="px-6 py-4">
+                    {{-- <td class="px-6 py-4">
                         {{ $produit->description }}
-                    </td>
+                    </td> --}}
                     <td class="px-6 py-4">
                         {{ $produit->stock }}
                     </td>

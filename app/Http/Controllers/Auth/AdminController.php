@@ -31,12 +31,25 @@ class AdminController extends Controller
         return view('admin/homeAdmin');
     }
 
-    public function homeSuperAdmin(){
+    public function homeSuperAdmin(Request $request){
 
-        $utilisateurs = User::all();
+        // $utilisateurs = User::all();
+        $search = $request->search;
+
+        if ($search) {
+            $utilisateurs = User::query()
+                ->where('name', 'LIKE', '%'.$search.'%')
+                ->orWhere('email', 'LIKE', '%'.$search.'%')
+                ->paginate(10);
+
+        } else {
+            $utilisateurs = User::latest()->paginate(10);
+            $user = $utilisateurs->first();
+        }
+        $user = $utilisateurs->first();
 
         // dd('Mes users '.$utilisateurs);
-        return view('superAdmin.homeSuperAdmin', compact('utilisateurs'));
+        return view('superAdmin.homeSuperAdmin', compact('utilisateurs', 'user'));
     }
 
     public function createFormLogin(){
